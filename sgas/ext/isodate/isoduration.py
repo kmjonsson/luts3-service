@@ -84,8 +84,8 @@ def parse_duration(duration):
                 groups[key] = "0n"
             groups[key] = float(groups[key][:-1].replace(',', '.'))
 
-    if groups["years"] == 0 and groups["months"] == 0:
-        ret = timedelta(days=groups["days"], hours=groups["hours"],
+    if groups["years"] == 0:
+        ret = timedelta(days=groups["days"] + 30*groups["months"], hours=groups["hours"],
                         minutes=groups["minutes"], seconds=groups["seconds"],
                         weeks=groups["weeks"])
         if groups["sign"] == '-':
